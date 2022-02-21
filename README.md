@@ -1,7 +1,7 @@
 # Fiera dell'elettronica 2022 - 4BINF
 ***
 <p align="center">
-  <img src="https://github.com/dprevedello/fiera-elettronica-2022/images/logo_ponti.png?raw=true" alt="ISIS A. Ponti"/>
+  <img src="https://raw.githubusercontent.com/dprevedello/fiera-elettronica-2022/main/images/logo_ponti.png" alt="ISIS A. Ponti"/>
 </p>
 Progetto della 4BINF per la fiera dell'elettronica - 2022
 
