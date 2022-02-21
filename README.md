@@ -1,7 +1,6 @@
 # Fiera dell'elettronica 2022 - 4BINF
-***
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dprevedello/fiera-elettronica-2022/main/images/logo_ponti.png" alt="ISIS A. Ponti"/>
+  <img src="https://raw.githubusercontent.com/dprevedello/fiera-elettronica-2022/main/images/logo_ponti.png" alt="ISIS A. Ponti" height="250px" />
 </p>
 Progetto della 4BINF per la fiera dell'elettronica - 2022
 
@@ -17,8 +16,6 @@ Sui sistemi linux invece useremo git da linea di comando:
 ```bash
 git clone dprevedello/fiera-elettronica-2022
 ```
-
-***
 
 ## Da dove partiamo:
 
