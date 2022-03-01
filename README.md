@@ -14,7 +14,7 @@ Noi useremo per semplicità su windows la versione desktop che si può trovare a
 Sui sistemi linux invece useremo git da linea di comando:
 
 ```bash
-git clone dprevedello/fiera-elettronica-2022
+git clone https://github.com/dprevedello/fiera-elettronica-2022.git
 ```
 
 ## Da dove partiamo:
