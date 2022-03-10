@@ -7,6 +7,16 @@ import math
 import mediapipe as mp
 import time
 from cvzone.FaceMeshModule import FaceMeshDetector
+from keras.models import load_model
+
+model=load_model("./model2-008.model")
+
+#haarcascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+rect_size = 4
+
+#requisiti mask_detection
+results={0:'senza mascherina',1:'mascherina ok'}
 
 
 detector = FaceMeshDetector(maxFaces=1)
@@ -36,15 +46,23 @@ def face_detection(frame):
         face = img.copy()[yn:y, x:xn]
         img = cvzone.cornerRect(img,[x,yn,xn-x,y-yn], )
                     
-                                    
+        print("AAAAAAAAAAAAAAAAAAAAAAAA")
         #cv2.rectangle(img, bbox, (255, 0, 255), 2)
         return True, img, face, d
-        
     #faccia trovata, frame con contorno della faccia, faccia, distanza
+    
+    
     return False, frame, frame, None 
 
-def mask_detection(frame):
-    return False
+def mask_detection(face):
+    
+    rerect_sized=cv2.resize(face,(224,224))
+    normalized=rerect_sized/255.0
+    reshaped=np.reshape(normalized,(1,224,224,3))
+    reshaped = np.vstack([reshaped])
+    result=model.predict(reshaped)
+    label=np.argmax(result,axis=1)[0]
+    return result
 
 
 sg.theme('LightGreen8')      #layout
@@ -63,6 +81,7 @@ while True:   #event loop
     ret, frame = cap.read()
     frame = cv2.flip(frame,1)
     detected, frame, face, distanza=face_detection(frame)
+    mask = mask_detection(face)    
     imgbytes = cv2.imencode('.png', frame)[1].tobytes()  
     window['webcam'].update(data=imgbytes)
        
