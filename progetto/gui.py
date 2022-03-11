@@ -40,29 +40,33 @@ def face_detection(frame):
         y = min(max(np.array(faces)[0,:,1]),img.shape[0])
         xn = min(max(np.array(faces)[0,:,0]),img.shape[1])
         yn = max(min(np.array(faces)[0,:,1]),0)
-        cvzone.putTextRect(img, f'Distanza: {int(d)}cm',
+        if 
+        cvzone.putTextRect(img, f'troppo vicino',
                            (face[10][0] - 100, face[10][1] - 50),
                            scale=2)
         face = img.copy()[yn:y, x:xn]
         img = cvzone.cornerRect(img,[x,yn,xn-x,y-yn], )
                     
-        print("AAAAAAAAAAAAAAAAAAAAAAAA")
+                                    
         #cv2.rectangle(img, bbox, (255, 0, 255), 2)
         return True, img, face, d
+        
     #faccia trovata, frame con contorno della faccia, faccia, distanza
     
     
     return False, frame, frame, None 
 
+def mask_detection(frame):
+    return False
 def mask_detection(face):
     
     rerect_sized=cv2.resize(face,(224,224))
     normalized=rerect_sized/255.0
     reshaped=np.reshape(normalized,(1,224,224,3))
     reshaped = np.vstack([reshaped])
-    result=model.predict(reshaped)
-    label=np.argmax(result,axis=1)[0]
-    return result
+    #result=model.predict(reshaped)
+    #label=np.argmax(result,axis=1)[0]
+    return False
 
 
 sg.theme('LightGreen8')      #layout
